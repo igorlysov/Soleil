@@ -16,15 +16,14 @@ from scipy.optimize import curve_fit
 from scipy.optimize import leastsq
 from scipy.signal import fftconvolve
 from scipy.signal import find_peaks
-from collections import defaultdict
 import numpy as np
 from functools import lru_cache
 import re
-from radiosun.scrapper import Scrapper
-from radiosun.time import TimeRange
-from radiosun.utils.utils import gaussian_mixture
-from radiosun.utils import *
+from radiosunpy.scrapper import Scrapper
+from radiosunpy.time import TimeRange
+from radiosunpy.utils import *
 
+__all__ = ['RATANClient', 'SRSClient']
 
 class BaseClient(metaclass=ABCMeta):
     @abstractmethod
@@ -397,7 +396,7 @@ class RATANClient(BaseClient):
         processed_hdul = []
         for url in url_list:
             hdul, hdulist = self.process_fits_data(url, **kwargs)
-            raw_hdul.append(hdulist)
+            raw_hdul.append(hdul)
             processed_hdul.append(hdulist)
         return raw_hdul, processed_hdul
 

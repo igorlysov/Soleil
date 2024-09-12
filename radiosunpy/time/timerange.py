@@ -3,10 +3,11 @@ from datetime import datetime
 import astropy.units as u
 from typing import List, Optional, Union, Tuple
 from astropy.time import Time, TimeDelta
-from radiosun.time.time import parse_time, check_equal_time
+from radiosunpy.time.time import parse_time, check_equal_time
 
 TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
+__all__ = ['TimeRange']
 
 class TimeRange:
     """

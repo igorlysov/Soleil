@@ -7,7 +7,7 @@ import requests
 from astropy.time import Time
 from dateutil.relativedelta import relativedelta
 
-from radiosun.time import TimeRange
+from radiosunpy.time import TimeRange
 
 TIME_REGEX = {'%Y': r'\d{4}', '%y': r'\d{2}',
               '%b': '[A-Z][a-z]{2}', '%m': r'\d{2}',
@@ -16,6 +16,7 @@ TIME_REGEX = {'%Y': r'\d{4}', '%y': r'\d{2}',
               '%M': r'\d{2}',
               '%S': r'\d{2}'}
 
+__all__ = ['Scrapper']
 
 class Scrapper:
     def __init__(

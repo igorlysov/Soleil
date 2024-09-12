@@ -26,20 +26,13 @@ TIME_REGEX = {
 @dataclass(frozen=True)
 class TimeFormats:
     common_formats: List[str] = field(default_factory=lambda: (
-        "%Y-%m-%dT%H:%M:%S.%f",  # 2007-05-04T21:08:12.999999
-        "%Y/%m/%dT%H:%M:%S.%f",  # 2007/05/04T21:08:12.999999
-        "%Y-%m-%dT%H:%M:%S.%fZ",  # 2007-05-04T21:08:12.999Z
         "%Y-%m-%dT%H:%M:%S",  # 2007-05-04T21:08:12
         "%Y/%m/%dT%H:%M:%S",  # 2007/05/04T21:08:12
-        "%Y%m%dT%H%M%S.%f",  # 20070504T210812.999999
         "%Y%m%dT%H%M%S",  # 20070504T210812
         "%Y/%m/%d %H:%M:%S",  # 2007/05/04 21:08:12
         "%Y/%m/%d %H:%M",  # 2007/05/04 21:08
-        "%Y/%m/%d %H:%M:%S.%f",  # 2007/05/04 21:08:12.999999
-        "%Y-%m-%d %H:%M:%S.%f",  # 2007-05-04 21:08:12.999999
         "%Y-%m-%d %H:%M:%S",  # 2007-05-04 21:08:12
         "%Y-%m-%d %H:%M",  # 2007-05-04 21:08
-        "%Y-%b-%d %H:%M:%S.%f",  # 2007-May-04 21:08:12.999999
         "%Y-%b-%d %H:%M:%S",  # 2007-May-04 21:08:12
         "%Y-%b-%d %H:%M",  # 2007-May-04 21:08
         "%Y-%b-%d",  # 2007-May-04
@@ -47,31 +40,31 @@ class TimeFormats:
         "%Y/%m/%d",  # 2007/05/04
         "%d-%b-%Y",  # 04-May-2007
         "%d-%b-%Y %H:%M:%S",  # 04-May-2007 21:08:12
-        "%d-%b-%Y %H:%M:%S.%f",  # 04-May-2007 21:08:12.999999
         "%Y%m%d_%H%M%S",  # 20070504_210812
         "%Y:%j:%H:%M:%S",  # 2012:124:21:08:12
-        "%Y:%j:%H:%M:%S.%f",  # 2012:124:21:08:12.999999
         "%Y%m%d%H%M%S",  # 20140101000001 (JSOC/VSO Export/Downloads)
         "%Y.%m.%d_%H:%M:%S_TAI",  # 2016.05.04_21:08:12_TAI - JSOC
         "%Y.%m.%d_%H:%M:%S_UTC",  # 2016.05.04_21:08:12_UTC - JSOC
         "%Y.%m.%d_%H:%M:%S",  # 2016.05.04_21:08:12 - JSOC
         "%Y/%m/%dT%H:%M",  # 2007/05/04T21:08
+        "%Y-%m-%dT%H:%M:%S.%f",  # 2007-05-04T21:08:12.999999
+        "%Y/%m/%dT%H:%M:%S.%f",  # 2007/05/04T21:08:12.999999
+        "%Y-%m-%dT%H:%M:%S.%fZ",  # 2007-05-04T21:08:12.999Z
+        "%Y%m%dT%H%M%S.%f",  # 20070504T210812.999999
+         "%Y/%m/%d %H:%M:%S.%f",  # 2007/05/04 21:08:12.999999
+        "%Y-%m-%d %H:%M:%S.%f",  # 2007-05-04 21:08:12.999999
+        "%Y-%b-%d %H:%M:%S.%f",  # 2007-May-04 21:08:12.999999
+        "%d-%b-%Y %H:%M:%S.%f",  # 04-May-2007 21:08:12.999999
+        "%Y:%j:%H:%M:%S.%f",  # 2012:124:21:08:12.999999
     ))
     examples: List[str] = field(default_factory=lambda: (
-        "2007-05-04T21:08:12.999999",
-        "2007/05/04T21:08:12.999999",
-        "2007-05-04T21:08:12.999Z",
         "2007-05-04T21:08:12",
         "2007/05/04T21:08:12",
-        "20070504T210812.999999",
         "20070504T210812",
         "2007/05/04 21:08:12",
         "2007/05/04 21:08",
-        "2007/05/04 21:08:12.999999",
-        "2007-05-04 21:08:12.999999",
         "2007-05-04 21:08:12",
         "2007-05-04 21:08",
-        "2007-May-04 21:08:12.999999",
         "2007-May-04 21:08:12",
         "2007-May-04 21:08",
         "2007-May-04",
@@ -79,33 +72,33 @@ class TimeFormats:
         "2007/05/04",
         "04-May-2007",
         "04-May-2007 21:08:12",
-        "04-May-2007 21:08:12.999999",
         "20070504_210812",
         "2012:124:21:08:12",
-        "2012:124:21:08:12.999999",
         "20140101000001", #(JSOC/VSO Export/Downloads)
         "2016.05.04_21:08:12_TAI",  #JSOC
         "2016.05.04_21:08:12_UTC",  #JSOC
         "2016.05.04_21:08:12",  #JSOC
         "2007/05/04T21:08",
+        "2007-05-04T21:08:12.999999",
+        "2007/05/04T21:08:12.999999",
+        "2007-05-04T21:08:12.999Z",
+        "20070504T210812.999999",
+        "2007/05/04 21:08:12.999999",
+        "2007-05-04 21:08:12.999999",
+        "2007-May-04 21:08:12.999999",
+        "04-May-2007 21:08:12.999999",
+        "2012:124:21:08:12.999999",
     ))
 
 
 COMMON_TIME_FORMATS = [
-    "%Y-%m-%dT%H:%M:%S.%f",  # 2007-05-04T21:08:12.999999
-    "%Y/%m/%dT%H:%M:%S.%f",  # 2007/05/04T21:08:12.999999
-    "%Y-%m-%dT%H:%M:%S.%fZ",  # 2007-05-04T21:08:12.999Z
     "%Y-%m-%dT%H:%M:%S",  # 2007-05-04T21:08:12
     "%Y/%m/%dT%H:%M:%S",  # 2007/05/04T21:08:12
-    "%Y%m%dT%H%M%S.%f",  # 20070504T210812.999999
     "%Y%m%dT%H%M%S",  # 20070504T210812
     "%Y/%m/%d %H:%M:%S",  # 2007/05/04 21:08:12
     "%Y/%m/%d %H:%M",  # 2007/05/04 21:08
-    "%Y/%m/%d %H:%M:%S.%f",  # 2007/05/04 21:08:12.999999
-    "%Y-%m-%d %H:%M:%S.%f",  # 2007-05-04 21:08:12.999999
     "%Y-%m-%d %H:%M:%S",  # 2007-05-04 21:08:12
     "%Y-%m-%d %H:%M",  # 2007-05-04 21:08
-    "%Y-%b-%d %H:%M:%S.%f",  # 2007-May-04 21:08:12.999999
     "%Y-%b-%d %H:%M:%S",  # 2007-May-04 21:08:12
     "%Y-%b-%d %H:%M",  # 2007-May-04 21:08
     "%Y-%b-%d",  # 2007-May-04
@@ -113,15 +106,22 @@ COMMON_TIME_FORMATS = [
     "%Y/%m/%d",  # 2007/05/04
     "%d-%b-%Y",  # 04-May-2007
     "%d-%b-%Y %H:%M:%S",  # 04-May-2007 21:08:12
-    "%d-%b-%Y %H:%M:%S.%f",  # 04-May-2007 21:08:12.999999
     "%Y%m%d_%H%M%S",  # 20070504_210812
     "%Y:%j:%H:%M:%S",  # 2012:124:21:08:12
-    "%Y:%j:%H:%M:%S.%f",  # 2012:124:21:08:12.999999
     "%Y%m%d%H%M%S",  # 20140101000001 (JSOC/VSO Export/Downloads)
     "%Y.%m.%d_%H:%M:%S_TAI",  # 2016.05.04_21:08:12_TAI - JSOC
     "%Y.%m.%d_%H:%M:%S_UTC",  # 2016.05.04_21:08:12_UTC - JSOC
     "%Y.%m.%d_%H:%M:%S",  # 2016.05.04_21:08:12 - JSOC
     "%Y/%m/%dT%H:%M",  # 2007/05/04T21:08
+    "%Y-%m-%dT%H:%M:%S.%f",  # 2007-05-04T21:08:12.999999
+    "%Y/%m/%dT%H:%M:%S.%f",  # 2007/05/04T21:08:12.999999
+    "%Y-%m-%dT%H:%M:%S.%fZ",  # 2007-05-04T21:08:12.999Z
+    "%Y%m%dT%H%M%S.%f",  # 20070504T210812.999999
+     "%Y/%m/%d %H:%M:%S.%f",  # 2007/05/04 21:08:12.999999
+    "%Y-%m-%d %H:%M:%S.%f",  # 2007-05-04 21:08:12.999999
+    "%Y-%b-%d %H:%M:%S.%f",  # 2007-May-04 21:08:12.999999
+    "%d-%b-%Y %H:%M:%S.%f",  # 04-May-2007 21:08:12.999999
+    "%Y:%j:%H:%M:%S.%f",  # 2012:124:21:08:12.999999
 ]
 
 
@@ -150,6 +150,37 @@ def check_equal_time(t1: Time, t2: Time) -> bool:
     return False
 
 
+def regex_time(time_string: str, format: str) -> Optional[str]:
+    """
+    Match a time string against a format using regular expressions.
+
+    :param time_string: The time string to match.
+    :type time_string: str
+    :param format: The time format string.
+    :type format: str
+    :returns: The time string if a match is found, otherwise None.
+    :rtype: Optional[str]
+
+    **Example:**
+
+    .. code-block:: python
+
+       >>>  regex_time('2020-01-01T00:00:00.000000', '%Y-%m-%dT%H:%M:%S.%f')
+        # Returns: '2020-01-01T00:00:00.000000'
+    """
+    regex_pattern = format
+    for key, value in TIME_REGEX.items():
+        regex_pattern = regex_pattern.replace(key, value)
+    # Обработка необязательного микросекундного компонента
+    if '%f' in format:
+        regex_pattern = regex_pattern.replace(r'(?P<microsecond>\d{1,6})', r'(?P<microsecond>\d{1,6})?')
+    regex_pattern = '^' + regex_pattern + '$'  # Добавим начало и конец строки
+    match = re.match(regex_pattern, time_string)
+    if match is None:
+        return None
+    return time_string
+
+
 def get_time_format(time_string: str) -> Optional[str]:
     """
     Determine the time format of a given time string.
@@ -169,32 +200,7 @@ def get_time_format(time_string: str) -> Optional[str]:
     for time_format in COMMON_TIME_FORMATS:
         if regex_time(time_string, time_format) is not None:
             return time_format
-
-
-def regex_time(time_string: str, format: str) -> Optional[str]:
-    """
-    Match a time string against a format using regular expressions.
-
-    :param time_string: The time string to match.
-    :type time_string: str
-    :param format: The time format string.
-    :type format: str
-    :returns: The time string if a match is found, otherwise None.
-    :rtype: Optional[str]
-
-    **Example:**
-
-    .. code-block:: python
-
-       >>>  regex_time('2020-01-01T00:00:00.000000', '%Y-%m-%dT%H:%M:%S.%f')
-        # Returns: '2020-01-01T00:00:00.000000'
-    """
-    for key, value in TIME_REGEX.items():
-        format = format.replace(key, value)
-    match = re.match(format, time_string)
-    if match is None:
-        return None
-    return time_string
+    return None
 
 
 @singledispatch
